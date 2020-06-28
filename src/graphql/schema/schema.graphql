@@ -1,0 +1,25 @@
+type Query {
+  hotels: [Hotel!]
+}
+type Hotel {
+  hotel_id: Int
+  hotel_name: String
+  full_address: Address
+  rating: Int
+  contact_phone: String
+  contact_email: String
+  latitude: String
+  longitude: String
+  country: String
+  pincode: Int
+  checkin_checkout_details: String
+  has_wifi: Boolean
+  has_room_service: Boolean
+  has_laundry: Boolean
+  has_locker: Boolean
+}
+type Address {
+  street: String
+  city: String
+  state: String
+}
