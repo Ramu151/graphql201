@@ -1,15 +1,22 @@
 const MongoClient = require("mongodb").MongoClient;
 const crudObj = require("./Crud");
 
+/**mongodb atlas connection establish with our application
+ * https://docs.atlas.mongodb.com/driver-connection/#connect-your-application
+ * 
+ * */
 const uri =
   "mongodb+srv://admin:admin@cluster0-bn8gj.mongodb.net/hotel_booking?retryWrites=true&w=majority";
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true });
+
+
 let db;
 
 mongoClient.connect((err) => {
   db = mongoClient.db("hotel_booking");
 });
 
+//insert query
 const createHotelEntry = async (hotelJson) => {
   const collection = db.collection("hotel");
   const data = await crudObj.insertDocument(collection, hotelJson);
