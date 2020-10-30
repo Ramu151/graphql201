@@ -6,17 +6,18 @@ type Hotel {
   hotel_name: String
   full_address: Address
   rating: Int
-  contact_phone: String
-  contact_email: String
+  phone: String
+  email: String
   latitude: String
   longitude: String
   country: String
   pincode: Int
-  checkin_checkout_details: String
-  has_wifi: Boolean
-  has_room_service: Boolean
-  has_laundry: Boolean
-  has_locker: Boolean
+  checkIn: String
+  checkOut: String
+  wifi: Boolean
+  room_service: Boolean
+  laundry: Boolean
+  locker: Boolean
 }
 type Address {
   street: String

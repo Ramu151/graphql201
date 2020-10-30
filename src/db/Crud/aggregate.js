@@ -6,10 +6,12 @@ const getHotelAmenities = (collection, hotelid) =>
         {
           $project: {
             hotel_id: 1,
-            has_wifi: 1,
-            has_room_service: 1,
-            has_laundry: 1,
-            has_locker: 1,
+            wifi: 1,
+            room_service: 1,
+            laundry: 1,
+            locker: 1,
+            giftShops: 1,
+            swimmingPool:1
           },
         },
       ])
@@ -28,7 +30,7 @@ const getHotelReviews = (collection, hotelid) =>
         {
           $project: {
             hotel_id: 1,
-            reviewer_name: 1,
+            reviewer: 1,
             comments: 1,
             rating: 1,
           },
@@ -48,10 +50,9 @@ const getHotelTariff = (collection, hotelid) =>
         { $match: { hotel_id: hotelid } },
         {
           $project: {
+            _id:1,
             hotel_id: 1,
             room_type: 1,
-            start_date: 1,
-            end_date: 1,
             tariff: 1,
           },
         },

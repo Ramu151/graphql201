@@ -1,13 +1,17 @@
 {
   "presets": [
-    "env",
-    "react",
-    "stage-0"
+    "@babel/env"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-decorators",
-    "transform-react-constant-elements",
-    "transform-react-inline-elements"
+    "@babel/plugin-proposal-class-properties",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-transform-react-inline-elements"
+    ]
   ]
 }

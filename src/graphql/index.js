@@ -9,25 +9,34 @@ const fetchData = async (endpoint) => {
 
 const typeDefs = `
 type Query {
-  hotels(hotel_id: String): [Hotel!]
-  review(hotel_id: String): Review!
+  hotels(hotel_id: Int): [Hotel!]
+  review(hotel_id: Int): Review!
+  tariff(hotel_id: Int): Tariff!
+  amenities(hotel_id: Int): Amenities!
 }
 type Hotel {
   hotel_id: Int
-  hotel_name: String
-  full_address: Address
+  name: String
+  address: Address
   rating: Int
-  contact_phone: String
-  contact_email: String
+  phone: String
+  email: String
   latitude: String
   longitude: String
   country: String
   pincode: Int
-  checkin_checkout_details: String
-  has_wifi: Boolean
-  has_room_service: Boolean
-  has_laundry: Boolean
-  has_locker: Boolean
+  checkIn: String
+  checkOut: String
+  wifi: Boolean
+  room_service: Boolean
+  laundry: Boolean
+  locker: Boolean
+  tariff: Int
+  swimmingPool: Boolean
+  giftShops: Boolean
+  comments: String
+  reviewer: String
+  ratings: String
 }
 type Address {
   street: String
@@ -37,8 +46,21 @@ type Address {
 type Review{
   hotel_id: Int
   comments: String
-  reviewer_name: String
+  reviewer: String
   ratings: String
+}
+type Tariff{
+  hotel_id: Int
+  tariff: Int
+}
+type Amenities{
+  hotel_id: Int
+  wifi: Boolean
+  room_service : Boolean
+  laundry: Boolean
+  locker: Boolean
+  giftShops: Boolean
+  swimmingPool: Boolean
 }
 `;
 const resolvers = {
@@ -56,9 +78,23 @@ const resolvers = {
     },
     async review(parent, args) {
       const hotel_id = args.hotel_id;
-      let end_point = `http://localhost:8000/hotels/${hotel_id}/review`;
+      let end_point = `http://localhost:8000/hotels/review/${hotel_id}`;
       let hotelReview = await fetchData(end_point);
       console.log("hotelReview ", hotelReview.hotelsList[0]);
+      return hotelReview.hotelsList[0];
+    },
+    async tariff(parent, args) {
+      const hotel_id = args.hotel_id;
+      let end_point = `http://localhost:8000/hotels/tariff/${hotel_id}`;
+      let hotelReview = await fetchData(end_point);
+      console.log("hotel tariff ", hotelReview.hotelsList[0]);
+      return hotelReview.hotelsList[0];
+    },
+    async amenities(parent, args) {
+      const hotel_id = args.hotel_id;
+      let end_point = `http://localhost:8000/hotels/amenities/${hotel_id}`;
+      let hotelReview = await fetchData(end_point);
+      console.log("hotel amenities ", hotelReview.hotelsList[0]);
       return hotelReview.hotelsList[0];
     },
   },

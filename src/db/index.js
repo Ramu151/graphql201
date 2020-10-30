@@ -23,10 +23,10 @@ const createHotelEntry = async (hotelJson) => {
   return data;
 };
 
-const getHotelData = async ({ hotelid, services, create }) => {
+const getHotelData = async ({ services, hotelid, create }) => {
   const collection = db.collection("hotel");
   let hotelId = parseInt(hotelid);
-  //crudObj.updateData(collection);
+  // crudObj.updateData(collection);
   console.log("services----", services);
 
   if (services) {
