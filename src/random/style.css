@@ -1,0 +1,33 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+p {
+  height: 50px;
+  background-color: aqua;
+  align-self: center;
+  /*self alignment*/
+  width: 100px;
+}
+
+.gridcontainer {
+  display: grid;
+}
