@@ -49,3 +49,4 @@ cdk init
 Resources:
 AWS construct library documentation
 AWS cdk github
+cdk-starter.ts -> stacks can be initiated and assigned to CDK app.
